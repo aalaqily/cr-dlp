@@ -1,5 +1,5 @@
 [project]
-name = "coursera-dl"
+name = "cr-dlp"
 version = "0.0.0"
 description = ""
 readme = "README.md"
@@ -25,7 +25,7 @@ dependencies = [
 ]
 
 [project.scripts]
-coursera-dl = "coursera_dl.maingui:main"
+cr-dlp = "cr_dlp.maingui:main"
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]
