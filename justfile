@@ -1,5 +1,5 @@
 run:
-    uv run coursera-dl
+    uv run cr-dlp
 
 build:
     uv build

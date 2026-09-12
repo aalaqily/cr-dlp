@@ -111,8 +111,8 @@ wheels = [
 ]
 
 [[package]]
-name = "coursera-dl"
-version = "0.0.0"
+name = "cr-dlp"
+version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "attrs" },
