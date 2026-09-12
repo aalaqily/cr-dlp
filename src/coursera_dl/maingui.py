@@ -9,11 +9,11 @@ from PyQt5.QtGui import QIcon, QCursor
 from PyQt5.QtCore import Qt
 from PyQt5.QtCore import pyqtSignal
 
-from utils import process_notification_html
-import general
-from coursera_dl import main_f
+from .utils import process_notification_html
+from . import general
+from .coursera_dl import main_f
 
-import livedb
+from . import livedb
 from threading import Thread
 import webbrowser
 from os import path
@@ -39,7 +39,7 @@ class MainWindow(QMainWindow):
         self.sllangschoices = general.LANG_NAME_TO_CODE_MAPPING
         self.allowed_browsers = general.ALLOWED_BROWSERS
 
-        from localdb import SimpleDB
+        from .localdb import SimpleDB
         self.localdb  = SimpleDB('data.bin')
 
         self.argdict = self.localdb.get_full_db()['argdict']
@@ -267,7 +267,7 @@ class MainWindow(QMainWindow):
 
     # About and Help dialogs
     def show_about(self):
-        from gui_components.about_text import get_about_text
+        from .gui_components.about_text import get_about_text
         about_text = get_about_text(__version__)
 
         dlg = QMessageBox(self)
@@ -279,7 +279,7 @@ class MainWindow(QMainWindow):
         dlg.exec_()
 
     def show_help(self):
-        from gui_components.help_text import get_help_text
+        from .gui_components.help_text import get_help_text
         help_text = get_help_text()
 
         dlg = QMessageBox(self)
@@ -394,7 +394,7 @@ class MainWindow(QMainWindow):
         self.path_label.setText(dir)
 
 
-if __name__ == "__main__":
+def main():
     # FIX: Add these two lines to enable High DPI scaling
     QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
     QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
@@ -403,3 +403,6 @@ if __name__ == "__main__":
     win = MainWindow()
     win.show()
     sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    main()
